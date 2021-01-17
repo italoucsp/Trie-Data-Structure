@@ -53,11 +53,11 @@ namespace UnitTest_TRIE_DataStructure {
     TEST_METHOD(c_Test_case_correct_multi_insertion) {
       std::string english = "abcdefghijklmnopqrstuvwxyz";
       Trie demo(create_alphabet(english));
-      demo.insert("computer");
-      demo.insert("science");
-      demo.insert("san");
-      demo.insert("pablo");
-      demo.insert("university");
+      Assert::AreEqual(true, demo.insert("computer"));
+      Assert::AreEqual(true, demo.insert("science"));
+      Assert::AreEqual(true, demo.insert("san"));
+      Assert::AreEqual(true, demo.insert("pablo"));
+      Assert::AreEqual(true, demo.insert("university"));
       std::string expected = "science";
       Assert::AreEqual(expected, demo.find("science"));
     }
@@ -112,8 +112,8 @@ namespace UnitTest_TRIE_DataStructure {
       demo.insert("pineapple");
       demo.insert("pine");
       demo.insert("pain");
-      demo.erase("pineapple");
-      demo.erase("apple");
+      Assert::AreEqual(true, demo.erase("pineapple"));
+      Assert::AreEqual(true, demo.erase("apple"));
       std::string expected = "pine";
       Assert::AreEqual(expected, demo.find("pine"));
     }
@@ -124,10 +124,10 @@ namespace UnitTest_TRIE_DataStructure {
       demo.insert("pineapple");
       demo.insert("pine");
       demo.insert("pain");
-      demo.erase("pineapple");
-      demo.erase("pine");
-      demo.erase("pain");
-      demo.erase("apple");
+      Assert::AreEqual(true, demo.erase("pineapple"));
+      Assert::AreEqual(true, demo.erase("pine"));
+      Assert::AreEqual(true, demo.erase("pain"));
+      Assert::AreEqual(true, demo.erase("apple"));
       std::string not_expected = "pain";
       Assert::AreNotEqual(not_expected, demo.find("pain"));
     }
